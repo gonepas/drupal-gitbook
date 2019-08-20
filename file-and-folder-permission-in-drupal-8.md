@@ -15,4 +15,5 @@ description: Phân quyền thư mục trong drupal 8
 * root 'htdocs' directory permission 555
 * sites/default/files directory permission 775
 * all directories in sites/default/files 775
-* 
+* sdfsdfsdf
+
