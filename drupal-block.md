@@ -76,7 +76,7 @@ class HelloBlock extends BlockBase {
 }
 ```
 
-Sau đó vào Drupal và xóa Cache
+Sau đó vào Drupal và xóa Cache, sẽ nhìn thấy block này nằm trong phần Structure &gt; Block
 
 ### 3. Setting hiển thị cho block
 
