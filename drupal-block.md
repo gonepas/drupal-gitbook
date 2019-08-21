@@ -29,7 +29,7 @@ Cấu hình Block
 
 Chọn "Save" để lưu view
 
-#### 2.2 Tạo custom block bằng giao diện quản lí
+#### 2.2 Tạo custom block bằng giao diện quản lí block
 
 Chọn "Structure" &gt; "Block layout" &gt; "Custom block library" &gt; Chọn "Add custom block"
 
@@ -79,4 +79,20 @@ class HelloBlock extends BlockBase {
 Sau đó vào Drupal và xóa Cache
 
 ### 3. Setting hiển thị cho block
+
+Truy cập URL: /admin/structure/block
+
+Chọn "Place block" ở region muốn hiển thị \(VD: Region cần đặt block ở đây là Header\)
+
+![](.gitbook/assets/picture1.png)
+
+Một bảng popup danh sách các block hiện ra. Chọn block để đặt vào region
+
+![](.gitbook/assets/picture2.png)
+
+Hệ thống sẽ chuyển đến trang cấu hình cho Block. Ở đây ta sẽ setting cho Title cho block và save lại
+
+#### 
+
+
 
