@@ -2,7 +2,7 @@
 description: Cache API
 ---
 
-# DRUPAL CACHE
+# Drupal Cache
 
 ## Cache API: 
 
@@ -176,5 +176,212 @@ Sau đó truy cập vào /core/rebuild.php
 
 ```
 
-​
+### ​Vô hiệu hóa cache trong Drupal 8
+
+Vô hiệu hóa cache \(cache render, cache các page động, cache file Twig\) trong quá trình code có ích trong việc kiểm tra các thay đổi do code mà không phải xóa cache.
+
+Nếu như terminal nhìn giống hình dưới:
+
+```text
+$ drush cr
+Cache rebuild complete.                      [ok]
+$ drush cr
+Cache rebuild complete.                      [ok]
+$ drush cr
+Cache rebuild complete.                      [ok]
+
+...
+```
+
+thì hãy thử các cách sau \( **lưu ý**: **bắt buộc phải log in user để xem trang web với chế độ cache bị vô hiệu hóa\)**
+
+**Cách 1: Bật local development settings**
+
+1. Copy, sửa tên và di chuyển file sites/example.settings.local.php vào file sites/default/settings.local.php
+
+```text
+$ cp sites/example.settings.local.php sites/default/settings.local.php
+```
+
+   2. Mở file settings.php trong thư mục sites/default và uncomment các dòng sau:
+
+```text
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
+```
+
+Mục đích là để enable file local setting như 1 phần của file settings.php
+
+   3. Mở file settings.local.php và enable file development.services.yml
+
+```text
+$settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml';
+```
+
+theo mặc định development.services.yml chứa các settings có thể vô hiệu hóa Drupal cache:
+
+```text
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory
+```
+
+**LƯU Ý: không tạo file development.services.yml, file này đã xuất hiện dưới thư mục /sites**
+
+  4. Trong file settings.local.php chuyển các setting sau thành true nếu muốn enable css-aggregation và js-aggregation:
+
+```text
+$config['system.performance']['css']['preprocess'] = FALSE;
+$config['system.performance']['js']['preprocess'] = FALSE;
+```
+
+  5. Uncomment các dòng sau trong file settings.local.php để vô hiệu hóa render cache và cache các page động:
+
+```text
+$settings['cache']['bins']['render'] = 'cache.backend.null';
+$settings['cache']['bins']['dynamic_page_cache'] = 'cache.backend.null';
+```
+
+Nếu version drupal đang dùng lớn hơn  8.4 thì thêm dòng sau vào file settings.local.php
+
+```text
+$settings['cache']['bins']['page'] = 'cache.backend.null';
+```
+
+  6. Mở file development.services.yml và thêm đoạn code sau để vô hiệu hóa Twig cache:
+
+```text
+parameters:
+  twig.config:
+    debug: true
+    auto_reload: true
+    cache: false
+```
+
+Lưu ý: nếu block parameters đã tồn tại, chỉ việc thêm block twig.config vào thôi
+
+  7. Sau đó ta phải rebuild lại Cache nếu không trang web sẽ bị lỗi khi tải trang.
+
+File development.services.yml sẽ thành như sau:
+
+```text
+# Local development services.
+#
+# To activate this feature, follow the instructions at the top of the
+# 'example.settings.local.php' file, which sits next to this file.
+parameters:
+  http.response.debug_cacheability_headers: true
+  twig.config:
+    debug: true
+    auto_reload: true
+    cache: false
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory
+```
+
+**Cách 2: sử dụng Drupal Console**
+
+Dùng lệnh console sau:
+
+```text
+drupal site:mode dev
+```
+
+Command này sẽ đè lên các giá trị setting của file services.yml và trên màn hình console sẽ chỉ ra các thay đổi trong setting:
+
+```text
+$ drupal site:mode dev
+ Configuration name: system.performance
+ ------------------------- ---------------- ----------------
+  Configuration key         Original Value   Override Value
+ ------------------------- ---------------- ----------------
+  cache.page.use_internal                    false
+  css.preprocess            true             false
+  css.gzip                  true             false
+  js.preprocess             true             false
+  js.gzip                   true             false
+  response.gzip                              false
+ ------------------------- ---------------- ----------------
+
+ Configuration name: views.settings
+ -------------------------------- ---------------- ----------------
+  Configuration key                Original Value   Override Value
+ -------------------------------- ---------------- ----------------
+  ui.show.sql_query.enabled        false            true
+  ui.show.performance_statistics   false            true
+ -------------------------------- ---------------- ----------------
+
+ Configuration name: system.logging
+ ------------------- ---------------- ----------------
+  Configuration key   Original Value   Override Value
+ ------------------- ---------------- ----------------
+  error_level         hide             all
+ ------------------- ---------------- ----------------
+
+
+ Services files C:\xampp5628\htdocs\d825/sites/default/services.yml was
+ overwritten
+
+
+ New services settings
+ ------------- ------------- -------
+  Service       Parameter     Value
+ ------------- ------------- -------
+  twig.config   auto_reload   true
+  twig.config   cache         true
+  twig.config   debug         true
+ ------------- ------------- -------
+
+ cache:rebuild
+
+ Rebuilding cache(s), wait a moment please.
+
+
+ [OK] Done clearing cache(s).
+
+$
+```
+
+**Lưu ý:**
+
+* Không kích hoạt file local.settings.php trong file settings.php
+* Dùng lệnh drupal site:mode prod để revert lại
+
+**Cách 3: tìm các cache bin**
+
+Các lệnh tìm cache bin:
+
+```text
+find . -type f -name *.services.yml | \
+xargs sed -E -n  's/.*cache\.(.*):.*/\1/p' | \
+grep -v "backend\|html.twig" | \
+sort -u | \
+awk -vORS=\',\' '{ print $1 }' | \
+sed "s/,'$//" | sed "s/^/'/"
+```
+
+Lưu ý trên môi trường OSX ta cần cài gawk và chạy 'gawk' thay cho 'awk' .
+
+Sau đó copy/paste tên các bin vào file settings.php  như sau
+
+```text
+$cache_bins = array('bootstrap','config','data','default','discovery','dynamic_page_cache','entity','menu','migrate','render','rest','static','toolbar');
+foreach ($cache_bins as $bin) {
+  $settings['cache']['bins'][$bin] = 'cache.backend.null';
+}
+```
+
+**Cách 4: Vô hiệu hóa cache dùng trình duyệt**
+
+ Sau khi tắt cache trên các file setting, những thay đổi CSS vẫn có thể không được áp dụng ngay trên trình duyệt. Mặc dù drupal có thể không lưu cache, nhưng trên trình duyệt web vẫn có lưu. Có thể vô hiệu hóa như sau \( trình duyệt Chrome\):
+
+![Ch&#x1ECD;n m&#x1EE5;c setting](.gitbook/assets/chrome-dev-tools-caching-1_0.png)
+
+![](.gitbook/assets/chrome-dev-tools-caching-2.png)
+
+Hoặc khi refresh trang có thể dùng tổ hợp CTRL  + F5. 
+
+
 
