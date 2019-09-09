@@ -30,6 +30,8 @@
 * CKEditor List Style \([https://www.drupal.org/project/ckeditor\_liststyle](https://www.drupal.org/project/ckeditor_liststyle)\)
 * CKEditor Templates \([https://www.drupal.org/project/ckeditor\_templates](https://www.drupal.org/project/ckeditor_templates)**\)**
 * CKEditor Bootstrap Glyphicon \([https://www.drupal.org/project/glyphicons](https://www.drupal.org/project/glyphicons)\)
+* CKEditor Letter Spacing \([https://www.drupal.org/project/ckeditor\_ls](https://www.drupal.org/project/ckeditor_ls)\)
+* CKEditor PageBreak \([https://www.drupal.org/project/pagebreak](https://www.drupal.org/project/pagebreak)\)
 
 
 
