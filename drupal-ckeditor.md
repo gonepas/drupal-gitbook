@@ -28,6 +28,8 @@
 * CKEditor Youtube \([https://www.drupal.org/project/ckeditor\_youtube](https://www.drupal.org/project/ckeditor_youtube)\)
 * CKEditor Panel Button \([https://www.drupal.org/project/panelbutton](https://www.drupal.org/project/panelbutton)\)
 * CKEditor List Style \([https://www.drupal.org/project/ckeditor\_liststyle](https://www.drupal.org/project/ckeditor_liststyle)\)
+* CKEditor Templates \([https://www.drupal.org/project/ckeditor\_templates](https://www.drupal.org/project/ckeditor_templates)**\)**
+* CKEditor Bootstrap Glyphicon \([https://www.drupal.org/project/glyphicons](https://www.drupal.org/project/glyphicons)\)
 
 
 
