@@ -1,4 +1,0 @@
-# Drupal CKEditor
-
-Drupal CKEditor
-
