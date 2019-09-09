@@ -32,6 +32,7 @@
 * CKEditor Bootstrap Glyphicon \([https://www.drupal.org/project/glyphicons](https://www.drupal.org/project/glyphicons)\)
 * CKEditor Letter Spacing \([https://www.drupal.org/project/ckeditor\_ls](https://www.drupal.org/project/ckeditor_ls)\)
 * CKEditor PageBreak \([https://www.drupal.org/project/pagebreak](https://www.drupal.org/project/pagebreak)\)
+* CKEditor CodeMirror \([https://www.drupal.org/project/ckeditor\_codemirror](https://www.drupal.org/project/ckeditor_codemirror)\)
 
 
 
