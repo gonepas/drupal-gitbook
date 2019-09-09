@@ -28,7 +28,7 @@ Nếu không có lỗi, trình xử lý trình form được thực thi.
 
 Ví dụ về validate form:
 
-![](.gitbook/assets/image%20%284%29.png)
+![](.gitbook/assets/image%20%286%29.png)
 
 ### 3.Submit form
 
@@ -48,7 +48,7 @@ FormBuilder có thể được sử dụng để truy xuất và xử lý các f
 
 Ví dụ:
 
-![](.gitbook/assets/image%20%285%29.png)
+![](.gitbook/assets/image%20%288%29.png)
 
 ### 5.Altering form
 
