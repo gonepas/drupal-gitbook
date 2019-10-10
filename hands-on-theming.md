@@ -115,23 +115,157 @@ Chi tiết:
 
 **type** \(required\)  Đặt là   'theme' nếu là  Theme.
 
-**description** A short one-line description used in the UI when listing your theme.
+**description**  Một dòng description ngắn sử dụng trong UI khi listing theme
 
-**package** The package your theme belongs in; used for grouping projects together.
+**package** The package mà theme của bạn thuộc về ; sử dụng để gộp các project với nhau.
 
-**core** \(required\) The version of Drupal core that your theme is compatible with. Required; for Drupal 8 themes this will likely always just be '8.x'.
+**core** \(required\) Version của Drupal core nơi mà  theme của bạn tương thích vớii. R
 
 **base theme** \(default = Stable\) The machine name of an installed theme to be used as a base theme. If no base theme is set, then the core base theme "Stable" will be used. Classy is the other base theme alternative provided in core. If no base theme should be used, enter "false" as a value for this key. \([Change record](https://www.drupal.org/node/2580687)\)
 
-See a [complete list of keys](https://www.drupal.org/node/2349827) - all of which will be covered in future tutorials.
-
 #### Clear the cache
 
-With your _themes/iceream.info.yml_ file in place, Drupal should be able to recognize your theme and display it as an option on the _Appearance_ page. You just need to clear the cache by navigating to _Configuration_ &gt; _Performance_ \(admin/config/development/performance\) page and clicking the _Clear all caches_ button. This will cause Drupal to recreate the list of themes it knows about - and this time it will find your _.info.yml_ file and recognize your new theme.
+#### Verify your theme tồn tại hay chưa 
 
-#### Verify your theme is listed
+Cuối cùng , vào trang _Appearance_ \(admin/appearance\) . Bạn sẽ thấy Ice Cream theme được list bên dưới mục _Uninstalled themes._
 
-Finally, navigate to the _Appearance_ \(admin/appearance\) page. You should see your Ice Cream theme listed under _Uninstalled themes_.
+### _C._ Add an Asset Library
+
+### What are asset libraries?
+
+Asset libraries are simply collections of CSS or JavaScript files or settings bundled together under a uniquely identified library name. By bundling files together into asset libraries developers are now able to isolate and package the styling and functionality of a particular component into a reusable library. Once this library has been created adding it to a page, or one particular type of element, is done in the same fashion regardless of the contents of the library. This means there is now one unified mechanism for adding CSS and JavaScript whether it's being added in a module or a theme. Consistency for the win!
+
+### The Classy libraries
+
+We can take a look at some libraries provided by the modules and themes in Drupal 8 core to see examples of this in practice. The Classy theme \(_core/themes/classy_\) provides a handful of libraries we can take a look at. Libraries are specified within a _.libraries.yml_ file.
+
+![Classy theme files](https://drupalize.me/sites/default/files/tutorials/classy-libraries.png)
+
+Here is the contents of the _classy.libraries.yml_ file:
+
+```text
+    base:
+      version: VERSION
+      css:
+        component:
+          css/components/action-links.css: { weight: -10 }
+          css/components/breadcrumb.css: { weight: -10 }
+          css/components/button.css: { weight: -10 }
+          css/components/collapse-processed.css: { weight: -10 }
+          css/components/container-inline.css: { weight: -10 }
+          css/components/details.css: { weight: -10 }
+          css/components/exposed-filters.css: { weight: -10 }
+          css/components/field.css: { weight: -10 }
+          css/components/form.css: { weight: -10 }
+          css/components/icons.css: { weight: -10 }
+          css/components/inline-form.css: { weight: -10 }
+          css/components/item-list.css: { weight: -10 }
+          css/components/link.css: { weight: -10 }
+          css/components/links.css: { weight: -10 }
+          css/components/menu.css: { weight: -10 }
+          css/components/more-link.css: { weight: -10 }
+          css/components/pager.css: { weight: -10 }
+          css/components/tabledrag.css: { weight: -10 }
+          css/components/tableselect.css: { weight: -10 }
+          css/components/tablesort.css: { weight: -10 }
+          css/components/tabs.css: { weight: -10 }
+          css/components/textarea.css: { weight: -10 }
+          css/components/ui-dialog.css: { weight: -10 }
+
+    book-navigation:
+      version: VERSION
+      css:
+        component:
+          css/components/book-navigation.css: {}
+
+    dialog:
+      version: VERSION
+      css:
+        component:
+          css/components/dialog.css: { weight: -10 }
+
+    dropbutton:
+      version: VERSION
+      css:
+        component:
+          css/components/dropbutton.css: { weight: -10 }
+
+    file:
+      version: VERSION
+      css:
+        component:
+          css/components/file.css: { weight: -10 }
+
+    forum:
+      version: VERSION
+      css:
+        component:
+          css/components/forum.css: { weight: -10 }
+
+    indented:
+      version: VERSION
+      css:
+        component:
+          css/components/indented.css: {}
+
+    messages:
+      version: VERSION
+      css:
+        component:
+          css/components/messages.css: { weight: -10 }
+
+    node:
+      version: VERSION
+      css:
+        component:
+          css/components/node.css: { weight: -10 }
+
+    progress:
+      version: VERSION
+      css:
+        component:
+          css/components/progress.css: { weight: -10 }
+
+    search-results:
+      version: VERSION
+      css:
+        component:
+          css/components/search-results.css: {}
+
+    user:
+      version: VERSION
+      css:
+        component:
+          css/components/user.css: { weight: -10 }
+
+```
+
+We can see here that the Classy theme provides several base CSS components for things like breadcrumbs, buttons, item lists, and pagers \(among others\). All of these asset libraries are composed entirely of CSS files.
+
+### Core libraries
+
+We can see more complex libraries in action in _/core/core.libraries.yml_. This file has an example of a JavaScript library as well as one that provides a dependency on another library.
+
+```text
+      # All libraries are defined in alphabetical order.
+
+      backbone:
+        remote: https://github.com/jashkenas/backbone
+        version: "1.2.3"
+        license:
+          name: MIT
+          url: https://github.com/jashkenas/backbone/blob/1.2.3/LICENSE
+          gpl-compatible: true
+        js:
+          assets/vendor/backbone/backbone-min.js: { weight: -19, minified: true }
+        dependencies:
+          - core/underscore
+
+```
+
+Here we can see the definition of the Backbone library, including version information, settings indicating it's weight relative to other JavaScript files, and a dependency on the underscore library. The underscore library is defined further down in the _/core/core.libraries.yml_ file.
+
+Take a look at some of the jQuery UI libraries defined by core to see an example of a library that contains both CSS and JavaScript files.
 
 ### 
 
