@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Giới thiệu](README.md)
+* [Cấu trúc khóa học trên Drupalize.me](README.md)
 * [Drupal CKEditor](drupal-ckeditor.md)
 * [File and folder permission in drupal](file-and-folder-permission-in-drupal-8.md)
 * [Drupal Block](drupal-block.md)
