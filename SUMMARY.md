@@ -10,5 +10,5 @@
 * [Drupal Service](drupal-service.md)
 * [Quy tắc Resful khi sử dụng API](untitled.md)
 * [Hands-On Theming](hands-on-theming.md)
-* [Ajax Form](ajax-form.md)
+* [Drupal Ajax Form](ajax-form.md)
 
