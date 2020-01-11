@@ -283,5 +283,137 @@ dependencies:
 
 4. Định nghĩa các link
 
+Tạo 3 loại link khác nhau: menu links, action links và task links
+
+![](.gitbook/assets/content_entity_example_links.png)
+
+ Tạo file _/modules/content\_entity\_example/content\_entity\_example.links.menu.yml_:
+
+```text
+# Define the menu links for this module
+
+entity.content_entity_example_contact.collection:
+  title: 'Content Entity Example: Contacts Listing'
+  route_name: entity.content_entity_example_contact.collection
+  description: 'List Contacts'
+  weight: 10
+content_entity_example_contact.admin.structure.settings:
+  title: Contact Settings
+  description: 'Configure Contact entity'
+  route_name:  content_entity_example.contact_settings
+  parent: system.admin_structure
+
+```
+
+3 link vừa tạo sẽ có chức năng "view", "edit", "delete". Các link này được tạo trong file  _/modules/content\_entity\_example.links.task.yml_ :
+
+```text
+# Define the 'local' links for the module
+
+contact.settings_tab:
+  route_name: content_entity_example.contact_settings
+  title: Settings
+  base_route: content_entity_example.contact_settings
+
+contact.view:
+  route_name: entity.content_entity_example_contact.canonical
+  base_route: entity.content_entity_example_contact.canonical
+  title: View
+
+contact.page_edit:
+  route_name: entity.content_entity_example_contact.edit_form
+  base_route: entity.content_entity_example_contact.canonical
+  title: Edit
+
+contact.delete_confirm:
+  route_name:  entity.content_entity_example_contact.delete_form
+  base_route:  entity.content_entity_example_contact.canonical
+  title: Delete
+  weight: 10
+```
+
+Tạo 1 action link \(có chức năng tạo 1 Contact mới\) trong file  _/modules/content\_entity\_example/content\_entity\_example.links.action.yml_:
+
+```text
+# All action links for this module
+
+content_entity_example.contact_add:
+  # Which route will be called by the link
+  route_name: content_entity_example.contact_add
+  title: 'Add Contact'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - entity.content_entity_example_contact.collection
+    - entity.content_entity_example_contact.canonical
+```
+
+Ta sẽ thiết lập các route để xử lý việc xem 1 hay nhiều các contact, và các form để thêm, sửa, xóa các cài đặt. Tạo 1 file /modules/content\_entity\_example/content\_entity\_example.routing.yml file:
+
+
+
+```text
+# This file brings everything together. Very nifty!
+
+# Route name can be used in several places; e.g. links, redirects, and local
+# actions.
+entity.content_entity_example_contact.canonical:
+  path: '/content_entity_example_contact/{content_entity_example_contact}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the contact entity
+    _entity_view: 'content_entity_example_contact'
+    _title: 'Contact Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'content_entity_example_contact.view'
+
+entity.content_entity_example_contact.collection:
+  path: '/content_entity_example_contact/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the contact entity.
+    _entity_list: 'content_entity_example_contact'
+    _title: 'Contact List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view contact entity'
+
+content_entity_example.contact_add:
+  path: '/content_entity_example_contact/add'
+  defaults:
+  # Calls the form.add controller, defined in the contact entity.
+    _entity_form: content_entity_example_contact.add
+    _title: 'Add Contact'
+  requirements:
+    _entity_create_access: 'content_entity_example_contact'
+
+entity.content_entity_example_contact.edit_form:
+  path: '/content_entity_example_contact/{content_entity_example_contact}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the contact entity.
+    _entity_form: content_entity_example_contact.edit
+    _title: 'Edit Contact'
+  requirements:
+    _entity_access: 'content_entity_example_contact.edit'
+
+entity.content_entity_example_contact.delete_form:
+  path: '/contact/{content_entity_example_contact}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the contact entity.
+    _entity_form: content_entity_example_contact.delete
+    _title: 'Delete Contact'
+  requirements:
+    _entity_access: 'content_entity_example_contact.delete'
+
+content_entity_example.contact_settings:
+  path: 'admin/structure/content_entity_example_contact_settings'
+  defaults:
+    _form: '\Drupal\content_entity_example\Form\ContactSettingsForm'
+    _title: 'Contact Settings'
+  requirements:
+    _permission: 'administer contact entity'
+```
+
+
+
 
 
