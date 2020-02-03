@@ -20,9 +20,9 @@ Copy/upload the webform module to the modules directory of your Drupal installat
 
 ## Webform Features
 
-The Webform module allows you to build any type of form that can collect any type of data, which can be submitted to any application or system. Every single behavior and aspect of your forms and its inputs are customizable. Whether you need a multi-page form containing a multi-column input layout with conditional logic or a simple contact form that pushes data to a SalesForce/CRM, it is all possible using the Webform module for Drupal 8.
+Webform module cho phép bạn có thể build bất cứ loại form nào mà có thể thu thập nhiều loại data, nơi mà có thể submit vào nhiều form hoặc hệ thống. Mỗi một behavior của form của bạn và dữ liệu đầu vào đều có thể customize được . Khi bạn cần một multi-page form chứa nhiều cột với điều kiện logic hoặc simple contact form có thể đẩy dữ liệu vào SalesForce/CRM thì bạn có thể sử dụng tất cả nó ở trong webform module dành cho Drupal 8.
 
-Drupal and the Webform module strives to be fully accessible to all users and site builders. Assistive technologies, including screen readers and keyboard access, are fully supported.
+Drupal và mô-đun Webform cố gắng truy cập đầy đủ cho tất cả người dùng và người xây dựng trang web. Các công nghệ hỗ trợ, bao gồm screen readers và keyboard access, được hỗ trợ đầy đủ.
 
 
 
