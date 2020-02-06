@@ -48,9 +48,9 @@ Các tính năng của trình quản lý biểu mẫu bao gồm:
 | :--- | :--- |
 
 
-The Webform module provides an intuitive form builder based upon Drupal 8's best practices for user interface design and user experience. The form builder allows non-technical users to easily build and maintain webforms.
+Mô-đun Webform cung cấp trình tạo biểu mẫu trực quan dựa trên các thực tiễn tốt nhất của Drupal 8 cho thiết kế giao diện người dùng và trải nghiệm người dùng. Trình tạo biểu mẫu cho phép người dùng không có kỹ thuật dễ dàng xây dựng và duy trì biểu mẫu web.
 
-Form builder features include:
+Các tính năng xây dựng biểu mẫu bao gồm:
 
 * Drag-n-drop form element management
 * Multi-column layout management
@@ -59,7 +59,7 @@ Form builder features include:
 
 ### Configuration settings <a id="s-configuration-settings"></a>
 
-Form behaviors, features, submission handling, messaging, and confirmations are completely customizable using global settings and/or form-specific settings.
+Hành vi biểu mẫu, tính năng, xử lý gửi, nhắn tin và xác nhận hoàn toàn có thể tùy chỉnh bằng cách sử dụng cài đặt chung và / hoặc cài đặt dành riêng cho biểu mẫu.
 
 | [![ General](https://www.drupal.org/files/webform-8.x.5.x-features--settings-general.png) **General**](https://www.drupal.org/files/webform-8.x.5.x-features--settings-general.png) | [![ Form](https://www.drupal.org/files/webform-8.x.5.x-features--settings-form.png) **Form**](https://www.drupal.org/files/webform-8.x.5.x-features--settings-form.png) |
 | :--- | :--- |
@@ -67,7 +67,7 @@ Form behaviors, features, submission handling, messaging, and confirmations are 
 
 #### General settings <a id="s-general-settings"></a>
 
-Allow a webform's administrative information, paths, behaviors, and third-party settings to be customized.
+Cho phép thông tin quản trị, đường dẫn, hành vi và cài đặt của bên thứ ba được tùy chỉnh.
 
 General settings include:
 
@@ -78,7 +78,7 @@ General settings include:
 
 #### Form settings <a id="s-form-settings"></a>
 
-Allow a form's status, attributes, behaviors, labels, messages, wizard settings, and preview to be customized.
+Cho phép trạng thái, thuộc tính, hành vi, nhãn, thông báo, cài đặt trình hướng dẫn và xem trước của biểu mẫu được tùy chỉnh.
 
 Form settings include:
 
@@ -94,9 +94,9 @@ Form settings include:
 
 #### Submissions settings <a id="s-submissions-settings"></a>
 
-Allows a submission's labels, behaviors, limits, and draft settings to be customized.
+Cho phép nhãn, hành vi, giới hạn và cài đặt dự thảo được gửi tùy chỉnh.
 
-Submission settings include:
+Submission settings bao gồm:
 
 * Saving of drafts
 * Automatic purging of submissions
@@ -105,9 +105,9 @@ Submission settings include:
 
 #### Confirmation settings <a id="s-confirmation-settings"></a>
 
-Allows the form's confirmation type, message, and URL to be customized.
+Cho phép loại xác nhận, thông báo và URL của biểu mẫu được tùy chỉnh.
 
-Confirmation types include:
+Confirmation types bao gồm :
 
 * Dedicated page
 * Redirect to internal or external URL
@@ -120,9 +120,9 @@ Confirmation types include:
 
 #### Emails / Handlers <a id="s-emails-handlers"></a>
 
-Allows additional actions and behaviors to be processed when a webform or submission is created, updated, or deleted. Handlers are used to route submitted data to external applications and send notifications & confirmations.
+Cho phép các hành động và hành vi bổ sung được xử lý khi biểu mẫu web hoặc nội dung gửi được tạo, cập nhật hoặc xóa. Trình xử lý được sử dụng để định tuyến dữ liệu đã gửi đến các ứng dụng bên ngoài và gửi thông báo & xác nhận.
 
-Email support features include:
+Email support features bao gồm :
 
 * Previewing and resending emails
 * Sending HTML emails
@@ -130,7 +130,7 @@ Email support features include:
 * HTML and plain-text email-friendly Twig templates
 * Customizable display formats for individual form elements
 
-Remote post features include: - Posting selected elements to a remote server - Adding custom parameters to remote post requests
+Các tính năng của bài đăng từ xa bao gồm: - Đăng các phần tử được chọn lên máy chủ từ xa - Thêm tham số tùy chỉnh vào yêu cầu bài đăng từ xa
 
 | [![ CSS/JS assets](https://www.drupal.org/files/webform-8.x.5.x-features--settings-assets.png) **CSS/JS assets**](https://www.drupal.org/files/webform-8.x.5.x-features--settings-assets.png) | [![ Access](https://www.drupal.org/files/webform-8.x.5.x-features--settings-access.png) **Access**](https://www.drupal.org/files/webform-8.x.5.x-features--settings-access.png) |
 | :--- | :--- |
@@ -138,11 +138,11 @@ Remote post features include: - Posting selected elements to a remote server - A
 
 #### CSS/JS assets <a id="s-cssjs-assets"></a>
 
-The CSS/JS assets page allows site builders to attach custom CSS and JavaScript to a webform. Custom CSS can be used to make simple layout or design tweaks to a form. Custom JavaScript allows additional conditional logic and behaviors to be added to a form.
+Trang assert  CSS / JS cho phép người xây dựng trang web đính kèm CSS và JavaScript tùy chỉnh vào biểu mẫu web. CSS tùy chỉnh có thể được sử dụng để thực hiện bố cục đơn giản hoặc điều chỉnh thiết kế thành một biểu mẫu. JavaScript tùy chỉnh cho phép bổ sung logic và hành vi có điều kiện vào một biểu mẫu.
 
 #### Access settings <a id="s-access-settings"></a>
 
-Allows an administrator to determine who can administer a webform and/or create, update, delete, and purge webform submissions.
+Cho phép quản trị viên xác định ai có thể quản trị biểu mẫu web và / hoặc tạo, cập nhật, xóa và xóa nội dung gửi biểu mẫu web.
 
 ### Elements <a id="s-elements"></a>
 
@@ -224,7 +224,7 @@ Multistep form features include:
 | :--- | :--- |
 
 
-Webforms can be attached to nodes or displayed as blocks. Webforms can also have dedicated SEO-friendly URLs. Form elements are render arrays that can easily be altered using custom hooks and/or plugins.
+Các biểu mẫu web có thể được gắn vào các nút hoặc hiển thị dưới dạng các khối. Các biểu mẫu web cũng có thể có các URL thân thiện với SEO chuyên dụng. Các phần tử biểu mẫu là các mảng kết xuất có thể dễ dàng được thay đổi bằng cách sử dụng các móc và / hoặc plugin tùy chỉnh.
 
 ### Results management <a id="s-results-management"></a>
 
@@ -232,9 +232,9 @@ Webforms can be attached to nodes or displayed as blocks. Webforms can also have
 | :--- | :--- |
 
 
-Form submissions can optionally be stored in the database, reviewed, and downloaded. Submissions can also be flagged with administrative notes.
+Việc gửi biểu mẫu có thể tùy chọn được lưu trữ trong cơ sở dữ liệu, được xem xét và tải xuống. Đệ trình cũng có thể được gắn cờ với ghi chú hành chính.
 
-Results management features include:
+Results management features bao gồm:
 
 * Submission flagging, locking, and notes
 * Viewing submissions as HTML, plain text, and YAML
@@ -249,9 +249,9 @@ Results management features include:
 | :--- | :--- |
 
 
-The Webform module provides full access controls and permissions for managing who can create forms, post submissions, and access a webform's results. Access controls can be applied to roles and/or specific users. The Webform access submodule allows you to even setup reusable permission groups which can be applied to multiple instances of the same webform.
+Mô-đun Webform cung cấp các điều khiển và quyền truy cập đầy đủ để quản lý những người có thể tạo biểu mẫu, gửi bài và truy cập kết quả của biểu mẫu web. Kiểm soát truy cập có thể được áp dụng cho vai trò và / hoặc người dùng cụ thể. Mô hình con truy cập Webform cho phép bạn thậm chí thiết lập các nhóm quyền có thể sử dụng lại có thể được áp dụng cho nhiều phiên bản của cùng một biểu mẫu web.
 
-Access controls allow users to:
+Access controls cho phép users làm :
 
 * Create new forms
 * Update forms
@@ -268,7 +268,7 @@ Access controls allow users to:
 | :--- | :--- |
 
 
-The Webform module provides a few starter templates and multiple example forms which webform administrators can update or use to create new reusable templates for their organization.
+Mô-đun Webform cung cấp một vài mẫu khởi động và nhiều mẫu ví dụ mà quản trị viên biểu mẫu web có thể cập nhật hoặc sử dụng để tạo các mẫu có thể sử dụng lại mới cho tổ chức của họ.
 
 Starter templates include:
 
@@ -289,7 +289,7 @@ Starter templates include:
 | :--- | :--- |
 
 
-Administrators can define reusable global options for select menus, checkboxes, and radio buttons. The Webform module includes default options for states, countries, demographics, likert answers, and more.
+Quản trị viên có thể xác định các tùy chọn toàn cầu có thể sử dụng lại cho các menu, hộp kiểm và nút radio được chọn. Mô-đun Webform bao gồm các tùy chọn mặc định cho các tiểu bang, quốc gia, nhân khẩu học, câu trả lời thích, v.v.
 
 Reusable options include:
 
@@ -300,7 +300,7 @@ Reusable options include:
 
 ### Internationalization <a id="s-internationalization"></a>
 
-Forms and configuration can be translated into multiple languages using Drupal's \[configuration translation system\]\([https://www.drupal.org/docs/8/core/modules/config-translation](https://www.drupal.org/docs/8/core/modules/config-translation).
+Các biểu mẫu và cấu hình có thể được dịch sang nhiều ngôn ngữ bằng\[configuration translation system\]\([https://www.drupal.org/docs/8/core/modules/config-translation](https://www.drupal.org/docs/8/core/modules/config-translation).
 
 ### Add-ons <a id="s-add-ons"></a>
 
@@ -308,9 +308,9 @@ Forms and configuration can be translated into multiple languages using Drupal's
 | :--- | :--- |
 
 
-There are [dozens of add-ons available](https://www.drupal.org/node/2837065) that extend and/or provide additional functionality to the Webform module and Drupal's Form API.
+Có hàng tá tiện ích bổ sung có sẵn mở rộng và / hoặc cung cấp chức năng bổ sung cho mô-đun Webform và API biểu mẫu của Drupal.
 
-Add-ons include:
+Add-ons bao gồm :
 
 * Analysis for creating graphs and charts
 * CRM integration including SalesForce, HubSpot, MyEmma, SugarCRM, more…
