@@ -2,7 +2,9 @@
 
 ## Giới thiệu về Webform
 
-Webform is the module for making forms and surveys in Drupal. After a submission customizable e-mails can be sent to administrators and/or submitters. Results can be exported into Excel or other spreadsheet applications. Webform also provides some basic statistical review and has an extensive API for expanding its features.
+Webform là mô-đun để tạo các biểu mẫu và khảo sát trong Drupal. Sau khi gửi e-mail có thể tùy chỉnh có thể được gửi đến quản trị viên và / hoặc người gửi. Kết quả có thể được xuất sang Excel hoặc các ứng dụng bảng tính khác. Webform cũng cung cấp một số đánh giá thống kê cơ bản và có API mở rộng để mở rộng các tính năng của nó.
+
+
 
 ## Installing the [Webform Module](https://www.drupal.org/project/webform)
 
@@ -32,13 +34,13 @@ Drupal và mô-đun Webform cố gắng truy cập đầy đủ cho tất cả n
 | :--- | :--- |
 
 
-The form manager provides a list of all available webforms.
+Trình quản lý biểu mẫu cung cấp một danh sách tất cả các biểu mẫu web có sẵn. 
 
-Form manager features include:
+Các tính năng của trình quản lý biểu mẫu bao gồm: 
 
-* Filtering by keyword, category, and status
-* Sorting by total number of submissions
-* Archiving of old forms
+* Lọc theo từ khóa, danh mục và trạng thái 
+* Sắp xếp theo tổng số bài nộp
+*  Lưu trữ các hình thức cũ
 
 ### Form builder <a id="s-form-builder"></a>
 
@@ -323,16 +325,18 @@ Add-ons include:
 | :--- | :--- |
 
 
-Examples and tools are provided to help developers get started customizing existing features and adding new features to the Webform module.
+Các ví dụ và công cụ được cung cấp để giúp các nhà phát triển bắt đầu tùy chỉnh các tính năng hiện có và thêm các tính năng mới vào mô-đun Webform.
 
-Development tools include:
+ Các công cụ phát triển bao gồm: 
 
-* Test forms using customizable default values
-* Easy to export configuration files
-* Debugging tools for all handlers
-* Examples for external API integration using remotes posts or custom code
-* Example modules for creating custom elements and handlers
-* Demos for building event registration and application evaluation system
+
+
+* Các hình thức kiểm tra sử dụng các giá trị mặc định có thể tùy chỉnh
+* Dễ dàng xuất tập tin cấu hình
+*  Công cụ sửa lỗi cho tất cả các trình xử lý 
+* Ví dụ về tích hợp API bên ngoài bằng cách sử dụng bài đăng từ xa hoặc mã tùy chỉnh 
+* Các mô-đun ví dụ để tạo các phần tử và trình xử lý tùy chỉnh 
+* Trình diễn xây dựng hệ thống đánh giá ứng dụng và đăng ký sự kiện
 
 ### Drush & Composer integration <a id="s-drush-composer-integration"></a>
 
@@ -340,7 +344,7 @@ Development tools include:
 | :--- | :--- |
 
 
-Drush commands are provided to:
+Các lệnh Drush được cung cấp để:
 
 * Generate multiple submissions
 * Export submissions
