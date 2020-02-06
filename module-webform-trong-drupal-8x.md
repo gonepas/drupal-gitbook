@@ -150,9 +150,9 @@ Cho phép quản trị viên xác định ai có thể quản trị biểu mẫu
 | :--- | :--- |
 
 
-The Webform module is built directly on top of Drupal 8's Form API. Every form element available in Drupal 8 is supported by the Webform module.
+Mô-đun Webform được xây dựng trực tiếp trên API Mẫu của Drupal 8. Mọi yếu tố biểu mẫu có sẵn trong Drupal 8 đều được mô đun Webform hỗ trợ.
 
-Form elements include:
+Form elements bao gồm:
 
 * **Basic HTML**: Textfield, Textareas, Checkboxes, Radios, Select menu, Password, and more...
 * **Advanced HTML5**: Email, Url, Number, Telephone, Date, Number, Range, and more...
@@ -164,9 +164,9 @@ Form elements include:
 
 #### Element settings <a id="s-element-settings"></a>
 
-All of Drupal 8's default form element properties and behaviors are supported. There are also several custom webform element properties and settings available to enhance a form element's behavior.
+Tất cả các thuộc tính và hành vi của phần tử biểu mẫu mặc định của Drupal 8 đều được hỗ trợ. Ngoài ra còn có một số thuộc tính và cài đặt phần tử biểu mẫu tùy chỉnh có sẵn để nâng cao hành vi của phần tử biểu mẫu.
 
-Standard and custom properties allow for:
+Standard and custom properties cho phép:
 
 * Customizable error validation messages
 * Conditional logic using [FAPI States API](https://api.drupal.org/api/examples/form_example%21form_example_states.inc/function/form_example_states_form/7)
@@ -185,7 +185,7 @@ Standard and custom properties allow for:
 
 #### States/Conditional logic <a id="s-statesconditional-logic"></a>
 
-Drupal's State API can be used by developers to provide conditional logic to hide and show form elements.
+Drupal's State API có thể được các nhà phát triển sử dụng để cung cấp logic có điều kiện để ẩn và hiển thị các thành phần của form.
 
 Drupal's State API supports:
 
@@ -196,7 +196,7 @@ Drupal's State API supports:
 
 #### Viewing source <a id="s-viewing-source"></a>
 
-At the heart of a Webform module's form elements is a Drupal [render array](https://www.drupal.org/docs/8/api/render-api/render-arrays), which can be edited and managed by developers. The Drupal render array gives developers complete control over a webform's elements, layout, and look-and-feel by allowing developers to make bulk updates to a webform's label, descriptions, and behaviors.
+Trung tâm của các thành phần biểu mẫu của mô-đun Webform là mảng kết xuất Drupal, có thể được các nhà phát triển chỉnh sửa và quản lý. Mảng kết xuất Drupal cung cấp cho các nhà phát triển quyền kiểm soát hoàn toàn các yếu tố, bố cục và giao diện của biểu mẫu web bằng cách cho phép các nhà phát triển thực hiện cập nhật hàng loạt cho nhãn, mô tả và hành vi của biểu mẫu web.
 
 ### Forms <a id="s-forms"></a>
 
@@ -206,13 +206,13 @@ At the heart of a Webform module's form elements is a Drupal [render array](http
 
 #### Accessibility <a id="s-accessibility"></a>
 
-The outputted forms and even the Webform module's administrative interface \(i.e. form builder\) are accessible using keyboard navigation and screen readers. The Webform module complies with [WCAG 2.0](http://www.w3.org/TR/WCAG20/#contents) and [ATAG 2.0](http://www.w3.org/TR/ATAG20/#contents) guidelines.
+Các biểu mẫu xuất ra và thậm chí giao diện quản trị của mô-đun Webform \(nghĩa là trình tạo biểu mẫu\) có thể truy cập bằng cách sử dụng điều hướng bàn phím và trình đọc màn hình. Mô-đun Webform tuân thủ các nguyên tắc WCAG 2.0 và ATAG 2.0.
 
 #### Multistep form <a id="s-multistep-form"></a>
 
-Forms can be broken up into multiple pages using a progress bar. Authenticated users can save drafts and/or have their changes automatically saved as they progress through a long form.
+Các hình thức có thể được chia thành nhiều trang bằng một thanh tiến trình. Người dùng được xác thực có thể lưu bản nháp và / hoặc tự động lưu các thay đổi của họ khi họ tiến hành thông qua một hình thức dài.
 
-Multistep form features include:
+Multistep form features bao gồm:
 
 * Customizable progress bar
 * Customizable previous and next button labels and styles
